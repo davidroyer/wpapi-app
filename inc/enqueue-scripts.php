@@ -34,11 +34,9 @@
   add_action( 'wp_footer', 'my_deregister_scripts' );
 
   // jQuery Conflict Fix
-  function enqueue_jquery_version() {
+  function remove_jquery() {
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js', false, false, false );
-    wp_enqueue_script( 'jquery' );
   }
-  add_action('wp_enqueue_scripts', 'enqueue_jquery_version');
+  add_action('wp_enqueue_scripts', 'remove_jquery');
 
 ?>
