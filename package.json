@@ -1,0 +1,49 @@
+{
+  "name": "starter-theme",
+  "version": "1.3.1",
+  "description": "A Modern Lightweight Wordpress Development Theme",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run clean && npm run run:dev",
+    "hot": "npm run clean && npm run run:hot",
+    "build": "npm run clean && npm run production",
+    "clean": "rm -rf ./public/**/*",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "sh deploy-docs.sh",
+    "production": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=$npm_package_config_mix",
+    "run:dev": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=$npm_package_config_mix",
+    "run:hot": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=$npm_package_config_mix"
+  },
+  "config": {
+    "mix": "node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "glob-all": "^3.1.0",
+    "imagemin-webpack-plugin": "^2.1.5",
+    "laravel-mix": "^2.1.11",
+    "laravel-mix-purgecss": "^2.2.0",
+    "purgecss-with-wordpress": "^1.0.0",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "typi": "^3.2.0"
+  },
+  "dependencies": {
+    "@glidejs/glide": "^3.0.4",
+    "babel-polyfill": "^6.26.0",
+    "mixitup": "^3.3.0",
+    "modaal": "^0.3.1",
+    "stickybits": "^3.2.3",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.2.3"
+  }
+}

@@ -1,0 +1,13 @@
+# build files
+.sass-cache
+node_modules
+package-lock.json
+yarn-error.log
+.env
+test
+.BACKUP
+mix-extend-config.js
+public
+!.DOCUMENTATION/
+!docs/.vuepress/public
+docs/.vuepress/dist
