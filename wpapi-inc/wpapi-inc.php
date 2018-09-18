@@ -10,6 +10,12 @@ require_once( 'cpts-rest-support.php' );
  */
 require_once( 'headless-redirect.php' );
 
+
+// require_once( 'settings.php' );
+
+require_once( 'netlify-build/netlify_build.php' );
+
+
 /**
  * Add CORS for wp-api
  */

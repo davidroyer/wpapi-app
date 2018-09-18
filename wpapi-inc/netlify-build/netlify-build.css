@@ -1,0 +1,4 @@
+#wpadminbar #wp-admin-bar-build .ab-icon:before {
+  content: "\f308";
+  top: 3px;
+}
