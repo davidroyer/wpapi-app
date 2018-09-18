@@ -19,6 +19,12 @@
 		<?php wp_head(); ?>
 
 		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+		<style media="screen">
+			.v-toolbar a {
+				color: inherit !important;
+				text-decoration: none;
+			}
+		</style>
 	</head>
 
 	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">

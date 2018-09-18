@@ -1,60 +1,27 @@
 // /******************************************************************
 // Main OLC Stylesheet
 // ******************************************************************/
-//
-// @import "base/variables";
-// @import "base/mixins";
-//
-// @import "generic/base";
-// @import "generic/typography";
-// @import "generic/links";
-// @import "generic/tables";
-// @import "generic/utility";
-//
-// @import "modules/accordion";
-// @import "modules/buttons";
-// @import "modules/cards";
-// @import "modules/cta-blog";
-// @import "modules/forms";
-// @import "modules/icon";
-// @import "modules/media";
-// @import "modules/progress";
-// @import "modules/sidebar";
-// @import "modules/slider";
-// @import "modules/skip-link";
-// @import "modules/social";
-// @import "modules/header";
-// @import "modules/nav";
-// @import "modules/footer";
-// @import "modules/layout";
-// @import "modules/page-title";
-//
-// @import "pages/home";
-// @import "pages/page";
-// @import "pages/blog";
-// @import "pages/post";
-// @import "pages/online-degrees";
-// @import "pages/get-started";
-// @import "pages/thank-you";
-//
-// @media print {
-// 	@import "modules/print";
-// }
-//
-// /*
-// Example of how styles for anything under this selector will not be removed by purgeCSS on build.
-// This is done white the purgecssWhitelistPatterns property in theme.config.js
-//
-// .keep-nested-children {
-// 	& h1 {
-// 		background: purple;
-// 	}
-//
-// 	& ul {
-// 		background: purple;
-// 	}
-// 	& li {
-// 		background: purple;
-// 	}
-// }
-//  */
+.v-parallax__image {
+	/* filter: grayscale(0.75) blur(5px) contrast(0.75); */
+}
+.v-parallax::after {
+	content: "";
+	background: linear-gradient(
+		to top,
+		rgba(13, 3, 29, 0.85),
+		rgba(25, 25, 38, 0.85)
+	);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	contain: strict;
+	transition: inherit;
+	z-index: 1;
+}
+
+.v-toolbar a {
+	color: inherit !important;
+	text-decoration: none;
+}

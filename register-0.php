@@ -81,64 +81,41 @@ get_header( 'wp-signup' );
 ?>
 
 
-<style media="screen">
-  .v-footer {
-    font-size: 1.25rem;
-  }
-
-	/* For non-home pages */
-
-	.v-parallax {
-    height: 200px !important;
-	}
-	.v-parallax__image {
-		display: none !important;
-	}
-	.v-parallax__image {
-		/* filter: grayscale(0.75) blur(5px) contrast(0.75); */
-	}
-	.v-parallax::after {
-		content: "";
-		background: linear-gradient(
-			to top,
-			rgba(13, 3, 29, 0.85),
-			rgba(25, 25, 38, 0.85)
-		);
-		/* background: 'to top right, rgba(63,81,181, .7), rgba(25,32,72, .7)' */
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		contain: strict;
-		transition: inherit;
-		z-index: 1;
-	}
-</style>
 <div id="vue-frontend-app">
-  <v-app light>
-   <v-toolbar class="white">
-     <v-toolbar-title><a href="/" v-text="siteInfo.blogname"></a></v-toolbar-title>
-   </v-toolbar>
-
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      right
+      app
+    >
+      <v-list dense>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>contact_mail</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Contact</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar color="indigo" dark fixed app>
+      <v-toolbar-title>VueWP Starter</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    </v-toolbar>
     <v-content>
-      <section>
-				<v-parallax
-			    dark
-			    src="https://source.unsplash.com/lqZPleZ4ERA/2000x2000"
-			  >
-				<v-layout
-		      align-center
-		      column
-		      justify-center
-		    >
-		      <h1 class="display-3 font-weight-medium mb-3">Signup</h1>
-		    </v-layout>
-				</v-parallax>
-        <!-- <v-parallax-hero></v-parallax-hero> -->
-      </section>
-      <section>
-				<v-layout class="my-5" justify-center align-center>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
           <v-flex xs12 sm8 md6>
 					<?php
 						/**
@@ -1045,21 +1022,17 @@ get_header( 'wp-signup' );
 						</div>
           </v-flex>
         </v-layout>
-      </section>
+      </v-container>
     </v-content>
-    <v-footer class="py-5" light>
-      <v-layout row wrap align-center>
-        <v-flex xs12 text-xs-center>
-          <div class="ml-3">
-            Made with
-            <v-icon class="">favorite</v-icon>
-            by <a class="" href="https://www.davidroyer.me" target="_blank">David Royer</a>
-          </div>
-        </v-flex>
-      </v-layout>
+    <v-footer color="indigo
+    " app>
+      <v-spacer></v-spacer>
+      <span class="white--text">&copy; 2017</span>
     </v-footer>
   </v-app>
 </div>
+
+
 <?php
 /**
  * Fires after the sign-up forms, before wp_footer.
