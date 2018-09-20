@@ -123,21 +123,9 @@ get_header( 'wp-signup' );
 		/* filter: grayscale(0.75) blur(5px) contrast(0.75); */
 	}
 	.v-parallax::after {
-		content: "";
-		background: linear-gradient(
-			to top,
-			rgba(13, 3, 29, 0.85),
-			rgba(25, 25, 38, 0.85)
-		);
-		/* background: 'to top right, rgba(63,81,181, .7), rgba(25,32,72, .7)' */
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		contain: strict;
-		transition: inherit;
-		z-index: 1;
+		background: -webkit-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
+		background: -o-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
+		background: linear-gradient(to top, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
 	}
 </style>
 <div id="vue-frontend-app">

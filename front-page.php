@@ -13,6 +13,11 @@
       height: 350px !important;
     }
   }
+  .v-parallax::after {
+		background: -webkit-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
+		background: -o-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
+		background: linear-gradient(to top, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
+	}
 </style>
 <div id="vue-frontend-app" class="FRONTPAGE">
   <v-app light>
@@ -32,16 +37,10 @@
       Login
       </v-btn>
     </v-toolbar>
+    <!-- <v-parallax-hero></v-parallax-hero> -->
     <v-content>
       <section>
-        <!-- <v-hero
-          src="https://source.unsplash.com/lqZPleZ4ERA/2000x2000"
-          :height="500"
-          :jumbotron="false"
-          dark
-          class="py-5"
-        > -->
-        <v-parallax-hero></v-parallax-hero>
+      <v-parallax-hero></v-parallax-hero>
       </section>
       <section>
         <v-layout
@@ -64,7 +63,7 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">storage</v-icon>
+                      <v-icon x-large class="primary--text">storage</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline text-xs-center">Material Design</div>
@@ -79,7 +78,7 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">developer_mode</v-icon>
+                      <v-icon x-large class="primary--text">developer_mode</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline">Fast development</div>
@@ -94,7 +93,7 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
+                      <v-icon x-large class="primary--text">build</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline text-xs-center">Completely Open Sourced</div>
