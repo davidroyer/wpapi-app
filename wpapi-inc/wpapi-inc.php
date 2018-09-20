@@ -11,17 +11,18 @@ require_once( 'cpts-rest-support.php' );
 require_once( 'headless-redirect.php' );
 
 
-// require_once( 'settings.php' );
-
+/**
+ * Deploy Build With Netlify
+ */
 require_once( 'netlify-build/netlify_build.php' );
 
+
+/**
+ * Adds Menus to wp-api
+ */
+require_once( 'menus-rest-support.php' );
 
 /**
  * Add CORS for wp-api
  */
 // require 'cors.php';
-
-/**
- * Deploy Build With Netlify
- */
-// require 'netlfiy-webhook.php';

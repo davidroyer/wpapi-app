@@ -1,6 +1,6 @@
 <?php
 // create custom plugin settings menu
-add_action('admin_menu', 'tlh_create_resources_menu');
+// add_action('admin_menu', 'tlh_create_resources_menu');
 
 function tlh_create_resources_menu() {
 	//create new top-level menu

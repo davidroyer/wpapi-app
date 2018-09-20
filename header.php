@@ -25,11 +25,15 @@
 				text-decoration: none;
 			}
 			.v-toolbar-title a {
-				max-width: 90px; 
+				max-width: 90px;
 			}
 			.v-toolbar a.header-logo img {
+				max-width: 140px;
 				width: auto;
 				height: 45px;
+			}
+			#vue-frontend-app img {
+				max-width: 140px;
 			}
 		</style>
 	</head>

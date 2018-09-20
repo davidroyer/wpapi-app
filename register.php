@@ -78,14 +78,23 @@ function wpmu_signup_stylesheet() {
 	    max-width: 90%;
 	    margin-left: auto;
 	    margin-right: auto;
-	}	
+	}
+	@media (min-width: 600px) {
+		#signup-content {
+			max-width: 550px;
+		}
+	}
 	.v-messages__message {
-	    color: rgba(0,0,0,.87);
-	    line-height: 1.25 !important;
+		color: rgba(0,0,0,.87);
+		line-height: 1.5 !important;
+		font-size: 14px;
 	}
 	.signup__form-header {
 		margin-bottom: 1.5em;
 		text-align: center;
+	}
+	p.hide-fix {
+	   display: none;
 	}
 	</style>
 	<?php
@@ -190,7 +199,7 @@ get_header( 'wp-signup' );
 							if ( ! is_subdomain_install() ) {
 								echo '<label for="blogname">' . __( 'Site Name:' ) . '</label>';
 							} else {
-								echo '<label for="blogname">' . __( 'Site Domain:' ) . '</label>';
+								// echo '<label for="blogname">' . __( 'Site Domain:' ) . '</label>';
 							}
 
 							if ( $errmsg = $errors->get_error_message( 'blogname' ) ) {
@@ -201,9 +210,10 @@ get_header( 'wp-signup' );
 
 							if ( ! is_subdomain_install() ) {
 								echo '<span class="prefix_address">' . $current_network->domain . $current_network->path . '</span><input name="blogname" type="text" id="blogname" value="' . esc_attr( $blogname ) . '" maxlength="60" /><br />';
-							} else {
-								echo '<input name="blogname" type="text" id="blogname" value="' . esc_attr( $blogname ) . '" maxlength="60" /><span class="suffix_address">.' . ( $site_domain = preg_replace( '|^www\.|', '', $current_network->domain ) ) . '</span><br />';
-							}
+							} else { ?>
+								<v-text-field class="mb-3" name="blogname" id="blogname" label="Site Domain" suffix="wpapi.app" hint="Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!" persistent-hint></v-text-field>
+
+							<?php	}
 
 							if ( ! is_user_logged_in() ) {
 								if ( ! is_subdomain_install() ) {
@@ -213,19 +223,19 @@ get_header( 'wp-signup' );
 								}
 
 								/* translators: %s: site address */
-								echo '<p>(<strong>' . sprintf( __( 'Your address will be %s.' ), $site ) . '</strong>) ' . __( 'Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!' ) . '</p>';
+								// echo '<p>(<strong>' . sprintf( __( 'Your address will be %s.' ), $site ) . '</strong>) ' . __( 'Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!' ) . '</p>';
 							}
 
 							// Blog Title
 							?>
-							<label for="blog_title"><?php _e( 'Site Title:' ); ?></label>
+							<!-- <label for="blog_title"><?php _e( 'Site Title:' ); ?></label> -->
 							<?php if ( $errmsg = $errors->get_error_message( 'blog_title' ) ) { ?>
 								<p class="error"><?php echo $errmsg; ?></p>
 								<?php
 						}
-							echo '<input name="blog_title" type="text" id="blog_title" value="' . esc_attr( $blog_title ) . '" />';
+							// echo '<input name="blog_title" type="text" id="blog_title" value="' . esc_attr( $blog_title ) . '" />';
 						?>
-
+						<v-text-field class="mb-3" name="blog_title" id="blog_title" label="Site Title"></v-text-field>
 							<?php
 							// Site Language.
 							$languages = signup_get_available_languages();
@@ -332,7 +342,7 @@ get_header( 'wp-signup' );
 								echo '<p class="error">' . $errmsg . '</p>';
 							}
 							?>
-							<v-text-field autocapitalize="none" autocorrect="off" maxlength="60" autocomplete="off" label="Username" name="user_name" id="user_name" hint="<?php _e( 'Must be at least 4 characters consisting of letters and numbers only.' ); ?>"></v-text-field>
+							<v-text-field class="mb-3" autocapitalize="none" autocorrect="off" maxlength="60" autocomplete="off" label="Username" name="user_name" id="user_name" hint="<?php _e( 'Must be at least 4 characters consisting of letters and numbers only.' ); ?>" persistent-hint></v-text-field>
 							<?php
 							// echo '<input name="user_name" type="text" id="user_name" value="' . esc_attr( $user_name ) . '" autocapitalize="none" autocorrect="off" maxlength="60" /><br />';
 							// _e( '(Must be at least 4 characters, letters and numbers only.)' );
@@ -676,7 +686,7 @@ get_header( 'wp-signup' );
 								?>
 								<?php show_user_form( $user_name, $user_email, $errors ); ?>
 
-								<p>
+								<p class="hide-fix">
 								<?php if ( $active_signup == 'blog' ) { ?>
 									<input id="signupblog" type="hidden" name="signup_for" value="blog" />
 								<?php } elseif ( $active_signup == 'user' ) { ?>

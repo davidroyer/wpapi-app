@@ -1,7 +1,7 @@
 <?php get_header(); ?>
+<h1>PAGE.PHP</h1>
 
 <main id="content" class="mainContent" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-	<?php get_template_part( 'template-parts/page-title' ); ?>
 
 		<div class="wrapLg pageWrapper">
 
@@ -13,7 +13,6 @@
 
 			<?php endwhile; endif; ?>
 
-			<?php get_sidebar(); ?>
 
 		</div>
 
