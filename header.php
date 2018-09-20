@@ -24,6 +24,13 @@
 				color: inherit !important;
 				text-decoration: none;
 			}
+			.v-toolbar-title a {
+				max-width: 90px; 
+			}
+			.v-toolbar a.header-logo img {
+				width: auto;
+				height: 45px;
+			}
 		</style>
 	</head>
 

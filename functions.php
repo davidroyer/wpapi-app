@@ -37,9 +37,12 @@ require_once( 'inc/template-tags.php' );
 // LOAD TEMPLATE TAGES
 require_once( 'inc/enqueue-scripts.php' );
 
+require_once( 'wpapi-settings-page.php' );
+
 /**
  * Adds all custom functionality
  */
 require get_parent_theme_file_path( '/wpapi-inc/wpapi-inc.php' );
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

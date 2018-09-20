@@ -196,11 +196,14 @@ function show_user_form($user_name = '', $user_email = '', $errors = '') { ?>
 
 <?php
 	// User name
-	echo '<label for="user_name">' . __('Username:') . '</label>';
+	// echo '<label for="user_name">' . __('Username:') . '</label>';
 	if ( $errmsg = $errors->get_error_message('user_name') ) {
 		echo '<p class="error">'.$errmsg.'</p>';
 	}
-	echo '<input name="user_name" type="text" class="col3"  id="user_name" value="'. esc_attr($user_name) .'" maxlength="60" />';
+	?>
+	<v-text-field label="Username" name="user_name" id="user_name"></v-text-field>
+<?php
+	// echo '<input name="user_name" type="text" class="col3"  id="user_name" value="'. esc_attr($user_name) .'" maxlength="60" />';
 	echo ('<hr class="clear">');
 	_e( '<span class="rules">(Must be at least 4 characters, letters and numbers only.)</span>' );
 	?>

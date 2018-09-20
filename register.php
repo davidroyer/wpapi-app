@@ -56,7 +56,7 @@ do_action( 'before_signup_header' );
  */
 function wpmu_signup_stylesheet() {
 	?>
-	<style type="text/css">
+	<!-- <style type="text/css">
 		.mu_register { width: 90%; margin:0 auto; }
 		.mu_register form { margin-top: 2em; }
 		.mu_register .error { font-weight: 600; padding: 10px; color: #333333; background: #FFEBE8; border: 1px solid #CC0000; }
@@ -71,6 +71,22 @@ function wpmu_signup_stylesheet() {
 		.mu_register label { font-weight: 600; font-size: 15px; display: block; margin: 10px 0; }
 		.mu_register label.checkbox { display:inline; }
 		.mu_register .mu_alert { font-weight: 600; padding: 10px; color: #333333; background: #ffffe0; border: 1px solid #e6db55; }
+	</style> -->
+
+	<style media="screen">
+	#signup-content {
+	    max-width: 90%;
+	    margin-left: auto;
+	    margin-right: auto;
+	}	
+	.v-messages__message {
+	    color: rgba(0,0,0,.87);
+	    line-height: 1.25 !important;
+	}
+	.signup__form-header {
+		margin-bottom: 1.5em;
+		text-align: center;
+	}
 	</style>
 	<?php
 }
@@ -118,7 +134,11 @@ get_header( 'wp-signup' );
 <div id="vue-frontend-app">
   <v-app light>
    <v-toolbar class="white">
-     <v-toolbar-title><a href="/" v-text="siteInfo.blogname"></a></v-toolbar-title>
+		 <v-toolbar-title>
+			 <a href="/" class="header-logo">
+				 <img src="/wp-content/themes/wpapi-app/public/images/wpapi-logo.png" alt="">
+			 </a>
+		 </v-toolbar-title>
    </v-toolbar>
 
     <v-content>
@@ -307,19 +327,26 @@ get_header( 'wp-signup' );
 							}
 
 							// User name
-							echo '<label for="user_name">' . __( 'Username:' ) . '</label>';
+							// echo '<label for="user_name">' . __( 'Username:' ) . '</label>';
 							if ( $errmsg = $errors->get_error_message( 'user_name' ) ) {
 								echo '<p class="error">' . $errmsg . '</p>';
 							}
-							echo '<input name="user_name" type="text" id="user_name" value="' . esc_attr( $user_name ) . '" autocapitalize="none" autocorrect="off" maxlength="60" /><br />';
-							_e( '(Must be at least 4 characters, letters and numbers only.)' );
+							?>
+							<v-text-field autocapitalize="none" autocorrect="off" maxlength="60" autocomplete="off" label="Username" name="user_name" id="user_name" hint="<?php _e( 'Must be at least 4 characters consisting of letters and numbers only.' ); ?>"></v-text-field>
+							<?php
+							// echo '<input name="user_name" type="text" id="user_name" value="' . esc_attr( $user_name ) . '" autocapitalize="none" autocorrect="off" maxlength="60" /><br />';
+							// _e( '(Must be at least 4 characters, letters and numbers only.)' );
 							?>
 
-							<label for="user_email"><?php _e( 'Email&nbsp;Address:' ); ?></label>
+							<!-- <label for="user_email"><?php _e( 'Email&nbsp;Address:' ); ?></label> -->
 							<?php if ( $errmsg = $errors->get_error_message( 'user_email' ) ) { ?>
 								<p class="error"><?php echo $errmsg; ?></p>
 							<?php } ?>
-							<input name="user_email" type="email" id="user_email" value="<?php echo esc_attr( $user_email ); ?>" maxlength="200" /><br /><?php _e( 'We send your registration email to this address. (Double-check your email address before continuing.)' ); ?>
+
+							<v-text-field name="user_email" type="email" id="user_email" label="Email Address"             persistent-hint
+							hint="<?php _e( 'We send your registration email to this address. (Double-check your email address before continuing.)' ); ?>"></v-text-field>
+							<br>
+							<!-- <input name="user_email" type="email" id="user_email" value="<?php echo esc_attr( $user_email ); ?>" maxlength="200" /><br /><?php _e( 'We send your registration email to this address. (Double-check your email address before continuing.)' ); ?> -->
 							<?php
 							if ( $errmsg = $errors->get_error_message( 'generic' ) ) {
 								echo '<p class="error">' . $errmsg . '</p>';
@@ -635,7 +662,7 @@ get_header( 'wp-signup' );
 
 							?>
 
-							<h2>
+							<h2 class="signup__form-header">
 							<?php
 								/* translators: %s: name of the network */
 								printf( __( 'Get your own %s account in seconds' ), get_network()->site_name );

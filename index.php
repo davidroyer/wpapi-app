@@ -10,17 +10,36 @@
   }
   @media (max-width: 680px) {
     .v-parallax {
-      height: 300px !important;
+      height: 350px !important;
     }
   }
 </style>
 <div id="vue-frontend-app">
   <v-app light>
     <v-toolbar class="white">
-      <v-toolbar-title><a href="/" v-text="siteInfo.blogname"></a></v-toolbar-title>
+      <v-toolbar-title>
+        <a href="/" class="header-logo">
+          <img src="/wp-content/themes/wpapi-app/public/images/wpapi-logo.png" alt="">
+        </a>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        outline
+        small
+        href="/wp-login.php"
+      >
+      Login
+      </v-btn>
     </v-toolbar>
     <v-content>
       <section>
+        <!-- <v-hero
+          src="https://source.unsplash.com/lqZPleZ4ERA/2000x2000"
+          :height="500"
+          :jumbotron="false"
+          dark
+          class="py-5"
+        > -->
         <v-parallax-hero></v-parallax-hero>
       </section>
       <section>
@@ -44,7 +63,7 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">storage</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline text-xs-center">Material Design</div>
@@ -59,7 +78,7 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">developer_mode</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
                       <div class="headline">Fast development</div>

@@ -9,7 +9,7 @@
       justify-center
     >
       <h1 class="display-3 font-weight-medium mb-3">WPAPI</h1>
-      <h4 class="display-1 text-xs-center font-weight-thin" v-html="siteDescription"></h4>
+      <h4 class="home-subheader display-1 text-xs-center font-weight-thin" v-html="siteDescription"></h4>
       <v-btn
         class="blue lighten-2 mt-5"
         dark
@@ -21,7 +21,7 @@
     </v-layout>
   </v-parallax>
 </template>
-window.wpData.siteDescription
+
 <script>
 export default {
 	data: () => ({
@@ -40,6 +40,11 @@ export default {
 		rgba(13, 3, 29, 0.85),
 		rgba(25, 25, 38, 0.85)
 	);
+	background: linear-gradient(
+		to top,
+		rgba(13, 3, 29, 0.85),
+		rgba(25, 25, 38, 0.85)
+	);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -48,5 +53,9 @@ export default {
 	contain: strict;
 	transition: inherit;
 	z-index: 1;
+}
+
+.home-subheader {
+	margin-top: -20px !important;
 }
 </style>
