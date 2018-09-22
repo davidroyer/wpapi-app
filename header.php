@@ -45,11 +45,11 @@
 		        </a>
 		      </v-toolbar-title>
 		      <v-spacer></v-spacer>
-		      <v-btn
+		      <!-- <v-btn
 		        outline
 		        small
 		        href="/wp-login.php"
 		      >
 		      Login
-		      </v-btn>
+		      </v-btn> -->
 		    </v-toolbar>

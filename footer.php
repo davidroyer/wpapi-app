@@ -1,4 +1,4 @@
-			<v-footer class="py-5" light>
+			<v-footer class="py-5" light v-cloak>
 				<v-layout row wrap align-center>
 					<v-flex xs12 text-xs-center>
 						<div class="ml-3">

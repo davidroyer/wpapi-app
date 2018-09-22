@@ -61,15 +61,15 @@ mix.webpackConfig({
 
 /* Removes unused CSS
  *****************************/
-mix.purgeCss({
-	paths: glob.sync(themePathsArray),
-	whitelist: config.purgecssWhitelist,
-	whitelistPatterns: [
-		...purgecssWordpress.whitelistPatterns,
-		...config.purgecssWhitelistPatterns
-	],
-	whitelistPatternsChildren: config.purgeCSSWhitelistPatternsChildren
-});
+// mix.purgeCss({
+// 	paths: glob.sync(themePathsArray),
+// 	whitelist: config.purgecssWhitelist,
+// 	whitelistPatterns: [
+// 		...purgecssWordpress.whitelistPatterns,
+// 		...config.purgecssWhitelistPatterns
+// 	],
+// 	whitelistPatternsChildren: config.purgeCSSWhitelistPatternsChildren
+// });
 
 if (mix.inProduction()) {
 	mix.version();
