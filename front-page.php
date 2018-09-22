@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <v-content>
+    <v-content v-cloak>
       <section>
         <v-parallax-hero img="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"/>
       </section>
@@ -11,14 +11,6 @@
           class="my-5"
           align-center
         >
-          <v-flex xs12 sm4 class="my-3">
-            <div class="text-xs-center">
-              <h2 class="headline">The best way to start developing</h2>
-              <span class="subheading">
-                Cras facilisis mi vitae nunc
-              </span>
-            </div>
-          </v-flex>
           <v-flex xs12>
             <v-container grid-list-xl>
               <v-layout row wrap align-center>
@@ -69,6 +61,16 @@
                 </v-flex>
               </v-layout>
             </v-container>
+          </v-flex>
+          <v-flex xs12 sm4 class="my-3">
+            <div class="text-xs-center">
+              <div id="signup-wrapper">
+                <h2 class="headline font-weight-medium mb-4">Recieve An Email When It's Ready To Test Out</h2>
+                <span class="subheading">
+                  <?php echo do_shortcode('[wpens_easy_newsletter firstname="no" lastname="no" button_text="Yes Please!"]'); ?>
+                </span>
+              </div>
+            </div>
           </v-flex>
         </v-layout>
       </section>

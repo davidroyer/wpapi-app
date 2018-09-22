@@ -16,11 +16,6 @@ let themePathsArray = [
 	path.join(__dirname, "src/scripts/**/*.js")
 ];
 
-/** Main Settings - Not dependant on if HMR, dev, or production modes
- ****************************************/
-// glob.sync("src/scripts/*.js").map(function(file) {
-// 	mix.js(file, "js");
-// });
 glob.sync("src/styles/*.scss").map(function(file) {
 	mix.sass(file, "css");
 });
@@ -39,6 +34,7 @@ mix
 	.extract(["vue", "vuetify"]);
 
 mix.options({
+	extractVueStyles: true,
 	processCssUrls: false,
 	autoprefixer: {
 		options: {

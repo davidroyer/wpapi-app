@@ -1,20 +1,20 @@
+let WebHookUrl;
+if (window.wpData.wpapiConfig.webhook_url) {
+	WebHookUrl = window.wpData.wpapiConfig.webhook_url;
+}
+
 jQuery(document).on("click", "#wp-admin-bar-build .ab-item", function(
-  clickEvent
+	clickEvent
 ) {
-  clickEvent.preventDefault();
+	clickEvent.preventDefault();
 
-  var netlifyHookUrl =
-    "https://api.netlify.com/build_hooks/5b8606dbfdd72a49c927ac85";
-
-  jQuery.post(netlifyHookUrl);
-
-  jQuery.ajax({
-    url: netlifyHookUrl,
-    type: "post",
-    success: function(response) {
-      alert(
-        "Your Site Build Has Started! Visit your project at https://app.netlify.com to check on its status."
-      );
-    }
-  });
+	jQuery.ajax({
+		url: WebHookUrl,
+		type: "post",
+		success: function(response) {
+			alert(
+				`Your Site Build Has Started! Visit your project at https://app.netlify.com to check on its status. This is for: ${WebHookUrl}`
+			);
+		}
+	});
 });

@@ -23,11 +23,10 @@ new Vue({
 		username: "",
 		wpData: window.wpData,
 		siteInfo: window.wpData.siteInfo,
-		siteDescription: window.wpData.siteDescription
+		siteDescription: window.wpData.siteDescription,
+		ready: false
 	}),
 	props: {
 		source: String
 	}
-	// router,
-	// render: h => h(App)
 });

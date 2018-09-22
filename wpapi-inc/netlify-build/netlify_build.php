@@ -1,8 +1,15 @@
 <?php
 
-add_action( 'admin_bar_menu', 'wpapi_netlify_deploy', 999 );
+$userConfig = get_option( 'wpapi_config' );
+$usingWebook = $userConfig['enable_builds'] == 1 ? true : false;
+$webhookUrl = $userConfig['webook_url'];
+
+if ($usingWebook) {
+  add_action( 'admin_bar_menu', 'wpapi_netlify_deploy', 999 );
+}
 
 function wpapi_netlify_deploy( $wp_admin_bar ) {
+
     if( current_user_can( 'level_5' ) ){
 
         $args = array(
@@ -28,11 +35,14 @@ function custom_wp_toolbar_css_admin() {
     if( current_user_can( 'level_5' ) ){
         wp_register_style( 'netlify_build_css',  get_template_directory_uri() . '/wpapi-inc/netlify-build/netlify-build.css','','', 'screen' );
 				wp_register_script( 'netlify_build_js', get_template_directory_uri() . '/wpapi-inc/netlify-build/netlify-build.js', array(), '', true );
+
         wp_enqueue_style( 'netlify_build_css' );
 				wp_enqueue_script( 'netlify_build_js' );
 
+        // Localize the script with our data that we want to use
+  			$data = array(
+          'wpapiConfig'  => get_option( 'wpapi_config' ),
+  			);
+  			wp_localize_script( 'netlify_build_js', 'wpData', $data );
     }
 }
-
-
-// isset($_POST['test_button'])

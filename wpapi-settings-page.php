@@ -26,7 +26,7 @@ class MySettingsPage
             'WPAPI Settings Admin',
             'WPAPI Settings',
             'manage_options',
-            'my-setting-admin',
+            'wpapi_settings_admin',
             array( $this, 'create_admin_page' ),
             'dashicons-media-code',
             '2'
@@ -39,16 +39,16 @@ class MySettingsPage
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'my_option_name' );
+        $this->options = get_option( 'wpapi_config' );
         ?>
         <div class="wrap">
-            <h1>My Settings</h1>
-
+            <h1>WPAPI Settings & Options</h1>
+            <?php settings_errors(); ?>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
-                settings_fields( 'my_option_group' );
-                do_settings_sections( 'my-setting-admin' );
+                settings_fields( 'wpapi_user_settings' );
+                do_settings_sections( 'wpapi_settings_admin' );
                 submit_button();
             ?>
             </form>
@@ -62,31 +62,31 @@ class MySettingsPage
     public function page_init()
     {
         register_setting(
-            'my_option_group', // Option group
-            'my_option_name', // Option name
+            'wpapi_user_settings', // Option group
+            'wpapi_config', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
         add_settings_section(
             'setting_section_id', // ID
-            'My Custom Settings', // Title
+            'Netlify Builds', // Title
             array( $this, 'print_section_info' ), // Callback
-            'my-setting-admin' // Page
+            'wpapi_settings_admin' // Page
         );
 
         add_settings_field(
-            'id_number', // ID
-            'ID Number', // Title
-            array( $this, 'id_number_callback' ), // Callback
-            'my-setting-admin', // Page
+            'enable_builds', // ID
+            'Enable Netlify Builds', // Title
+            array( $this, 'enable_builds_callback' ), // Callback
+            'wpapi_settings_admin', // Page
             'setting_section_id' // Section
         );
 
         add_settings_field(
-            'webhook',
+            'webhook_url',
             'Netlify Webhook URL',
             array( $this, 'webhook_callback' ),
-            'my-setting-admin',
+            'wpapi_settings_admin',
             'setting_section_id'
         );
     }
@@ -99,11 +99,11 @@ class MySettingsPage
     public function sanitize( $input )
     {
         $new_input = array();
-        if( isset( $input['id_number'] ) )
-            $new_input['id_number'] = absint( $input['id_number'] );
+        if( isset( $input['enable_builds'] ) )
+            $new_input['enable_builds'] = absint( $input['enable_builds'] );
 
-        if( isset( $input['webhook'] ) )
-            $new_input['webhook'] = sanitize_text_field( $input['webhook'] );
+        if( isset( $input['webhook_url'] ) )
+            $new_input['webhook_url'] = sanitize_text_field( $input['webhook_url'] );
 
         return $new_input;
     }
@@ -113,17 +113,17 @@ class MySettingsPage
      */
     public function print_section_info()
     {
-        print 'Enter your settings below:';
+        print '<p>You will be able to initiate this anytime you want by clicking the <strong>Build Site</strong> link in the Admin Toolbar at the top of the page.</p>';
     }
 
     /**
      * Get the settings option array and print one of its values
      */
-    public function id_number_callback()
+    public function enable_builds_callback()
     {
         printf(
-            '<input type="text" id="id_number" name="my_option_name[id_number]" value="%s" />',
-            isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
+            '<input type="text" id="enable_builds" name="wpapi_config[enable_builds]" value="%s" />',
+            isset( $this->options['enable_builds'] ) ? esc_attr( $this->options['enable_builds']) : ''
         );
     }
 
@@ -133,11 +133,11 @@ class MySettingsPage
     public function webhook_callback()
     {
         printf(
-            '<input type="text" id="webhook" name="my_option_name[webhook]" value="%s" />
-            <p>You will be able to initiate this anytime you want by clicking the <strong>Build Site</strong> link in the Admin Toolbar at the top of the page.</p>',
-            isset( $this->options['webhook'] ) ? esc_attr( $this->options['webhook']) : ''
+            '<input type="text" id="webhook_url" name="wpapi_config[webhook_url]" value="%s" />',
+            isset( $this->options['webhook_url'] ) ? esc_attr( $this->options['webhook_url']) : ''
         );
     }
+
 }
 
 if( is_admin() )

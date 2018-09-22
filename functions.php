@@ -22,10 +22,6 @@ require_once( 'inc/cleanup.php' );
 // LOAD THEME SUPPORT
 require_once( 'inc/theme-support.php' );
 
-// LOAD TEMPLATE TAGES
-require_once( 'inc/template-tags.php' );
-
-// LOAD TEMPLATE TAGES
 require_once( 'inc/enqueue-scripts.php' );
 
 require_once( 'wpapi-settings-page.php' );

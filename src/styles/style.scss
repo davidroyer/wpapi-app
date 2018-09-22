@@ -1,22 +1,109 @@
-// /******************************************************************
-// Main OLC Stylesheet
-// ******************************************************************/
-.v-parallax__image {
-	/* filter: grayscale(0.75) blur(5px) contrast(0.75); */
+.easy-newsletter {
+	margin: 10px 0px;
+	width: 100%;
 }
-// .v-parallax::after {
-// 	content: "";
-// 	background: linear-gradient(
-// 		to top,
-// 		rgba(13, 3, 29, 0.85),
-// 		rgba(25, 25, 38, 0.85)
-// 	);
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	contain: strict;
-// 	transition: inherit;
-// 	z-index: 1;
-// }
+form#easy-newsletter-form {
+	margin-top: 20px;
+	justify-content: space-between;
+	align-items: center;
+}
+@media (min-width: 500px) {
+	form#easy-newsletter-form {
+		display: flex;
+	}
+}
+.easy-newsletter .input-field {
+	margin-bottom: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: calc(100% - 180px);
+}
+
+@media (max-width: 499px) {
+	.easy-newsletter .input-field {
+		width: 100% !important;
+		justify-content: center !important;
+	}
+}
+.input-field.input-submit {
+	width: 150px;
+	margin-left: auto;
+}
+.easy-newsletter .input-field label {
+	margin-right: 8px;
+	font-weight: 400;
+	font-size: 1.25em;
+	margin-bottom: -5px;
+	color: #707070;
+}
+input.wpens_email {
+	border-bottom: 1px solid gray;
+	width: 100%;
+	padding: 0 5px;
+	vertical-align: text-top;
+	line-height: 1.5;
+	height: 30px;
+}
+#easy-newsletter-submit {
+	background: #1a76d2;
+	padding: 8px 18px;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100%;
+	color: white;
+	max-width: 300px;
+}
+#signup-wrapper {
+	margin-top: 3em;
+	margin-bottom: 1.5em;
+}
+
+.v-toolbar a {
+	color: inherit !important;
+	text-decoration: none;
+}
+.v-footer {
+	font-size: 1.25rem;
+}
+.v-parallax::after {
+	background: -webkit-linear-gradient(
+		bottom,
+		rgba(2, 15, 39, 0.5),
+		rgba(2, 15, 39, 0.75)
+	);
+	background: -o-linear-gradient(
+		bottom,
+		rgba(2, 15, 39, 0.5),
+		rgba(2, 15, 39, 0.75)
+	);
+	background: linear-gradient(
+		to top,
+		rgba(2, 15, 39, 0.5),
+		rgba(2, 15, 39, 0.75)
+	);
+}
+@media (max-width: 1199px) {
+	.v-parallax {
+		height: 400px !important;
+	}
+}
+@media (max-width: 680px) {
+	.v-parallax {
+		height: 350px !important;
+	}
+	#signup-wrapper {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media (max-width: 680px) {
+	#page-register .v-parallax {
+		height: 250px !important;
+	}
+}
+
+[v-cloak] > * {
+	display: none;
+}
