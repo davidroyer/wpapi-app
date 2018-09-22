@@ -29,7 +29,7 @@ function wpapi_menus_all () {
  * @return object Menu's data with his items
  */
 function wpapi_menu ( $data ) {
-    $menu = new stdClass;
+  $menu = new stdClass;
 	$menu->items = [];
     if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $data['id'] ] ) ) {
         $menu = get_term( $locations[ $data['id'] ] );

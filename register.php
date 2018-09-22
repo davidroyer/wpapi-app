@@ -56,24 +56,30 @@ do_action( 'before_signup_header' );
  */
 function wpmu_signup_stylesheet() {
 	?>
-	<!-- <style type="text/css">
-		.mu_register { width: 90%; margin:0 auto; }
-		.mu_register form { margin-top: 2em; }
-		.mu_register .error { font-weight: 600; padding: 10px; color: #333333; background: #FFEBE8; border: 1px solid #CC0000; }
-		.mu_register input[type="submit"],
-			.mu_register #blog_title,
-			.mu_register #user_email,
-			.mu_register #blogname,
-			.mu_register #user_name { width:100%; font-size: 24px; margin:5px 0; }
-		.mu_register #site-language { display: block; }
-		.mu_register .prefix_address,
-			.mu_register .suffix_address { font-size: 18px; display:inline; }
-		.mu_register label { font-weight: 600; font-size: 15px; display: block; margin: 10px 0; }
-		.mu_register label.checkbox { display:inline; }
-		.mu_register .mu_alert { font-weight: 600; padding: 10px; color: #333333; background: #ffffe0; border: 1px solid #e6db55; }
-	</style> -->
 
 	<style media="screen">
+	.v-parallax::after {
+		content: "";
+		/* background: linear-gradient(
+			to top,
+			rgba(13, 3, 29, 0.85),
+			rgba(25, 25, 38, 0.85)
+		);
+		background: linear-gradient(
+			to top,
+			rgba(13, 3, 29, 0.85),
+			rgba(25, 25, 38, 0.85)
+		); */
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		/* contain: strict; */
+		transition: inherit;
+		z-index: 1;
+	}
+
 	#signup-content {
 	    max-width: 90%;
 	    margin-left: auto;
@@ -96,6 +102,16 @@ function wpmu_signup_stylesheet() {
 	p.hide-fix {
 	   display: none;
 	}
+	.signup-hero-headline {
+		font-size: 5.5em !important;
+	}
+
+	@media (min-width: 900px) {
+		.signup-hero-headline {
+			font-size: 8.5em !important;
+		}
+	}
+
 	</style>
 	<?php
 }
@@ -106,50 +122,18 @@ get_header( 'wp-signup' );
 ?>
 
 
-<style media="screen">
-  .v-footer {
-    font-size: 1.25rem;
-  }
-
-	/* For non-home pages */
-
-	.v-parallax {
-    height: 200px !important;
-	}
-	.v-parallax__image {
-		display: none !important;
-	}
-	.v-parallax__image {
-		/* filter: grayscale(0.75) blur(5px) contrast(0.75); */
-	}
-	.v-parallax::after {
-		background: -webkit-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
-		background: -o-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
-		background: linear-gradient(to top, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
-	}
-</style>
-<div id="vue-frontend-app">
-  <v-app light>
-   <v-toolbar class="white">
-		 <v-toolbar-title>
-			 <a href="/" class="header-logo">
-				 <img src="/wp-content/themes/wpapi-app/public/images/wpapi-logo.png" alt="">
-			 </a>
-		 </v-toolbar-title>
-   </v-toolbar>
-
-    <v-content>
+    <v-content id="page-register">
       <section>
 				<v-parallax
 			    dark
-			    src="https://source.unsplash.com/lqZPleZ4ERA/2000x2000"
+			    src="/wp-content/themes/wpapi-app/public/images/signup-hero.jpeg"
 			  >
 				<v-layout
 		      align-center
 		      column
 		      justify-center
 		    >
-		      <h1 class="display-3 font-weight-medium mb-3">Signup</h1>
+		      <h1 class="signup-hero-headline font-weight-medium mb-3">Signup</h1>
 		    </v-layout>
 				</v-parallax>
         <!-- <v-parallax-hero></v-parallax-hero> -->
@@ -1072,7 +1056,7 @@ get_header( 'wp-signup' );
         </v-layout>
       </section>
     </v-content>
-    <v-footer class="py-5" light>
+    <!-- <v-footer class="py-5" light>
       <v-layout row wrap align-center>
         <v-flex xs12 text-xs-center>
           <div class="ml-3">
@@ -1084,7 +1068,7 @@ get_header( 'wp-signup' );
       </v-layout>
     </v-footer>
   </v-app>
-</div>
+</div> -->
 <?php
 /**
  * Fires after the sign-up forms, before wp_footer.

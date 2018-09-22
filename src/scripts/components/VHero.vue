@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="stylus">
-  .v-parallax--dark,
+  /* .v-parallax--dark,
   .v-parallax--light
     .v-parallax__image-container:after
       bottom: 0
@@ -49,5 +49,5 @@ export default {
       background: linear-gradient(to top, rgba(#fff, .8), rgba(#fff, .9))
 
     &--dark &__image-container:after
-      background: linear-gradient(to top, rgba(13, 3, 29, .85), rgba(25, 25, 38, .85))
+      background: linear-gradient(to top, rgba(13, 3, 29, .85), rgba(25, 25, 38, .85)) */
 </style>

@@ -1,26 +1,20 @@
 <?php
 
 /**
- * Add all custom post types to rest-api
+ * Add all custom post types to rest-api & menus
  */
-require_once( 'cpts-rest-support.php' );
+require_once( 'rest-support_custom-posts.php' );
+require_once( 'rest-support_menus.php' );
 
 /**
  * Redirect from front-end to login if not main site (All subdomains/user sites)
  */
 require_once( 'headless-redirect.php' );
 
-
 /**
  * Deploy Build With Netlify
  */
 require_once( 'netlify-build/netlify_build.php' );
-
-
-/**
- * Adds Menus to wp-api
- */
-require_once( 'menus-rest-support.php' );
 
 /**
  * Add CORS for wp-api

@@ -1,46 +1,8 @@
 <?php get_header(); ?>
-<style media="screen">
-  .v-footer {
-    font-size: 1.25rem;
-  }
-  @media (max-width: 1199px) {
-    .v-parallax {
-      height: 400px !important;
-    }
-  }
-  @media (max-width: 680px) {
-    .v-parallax {
-      height: 350px !important;
-    }
-  }
-  .v-parallax::after {
-		background: -webkit-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
-		background: -o-linear-gradient(bottom, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
-		background: linear-gradient(to top, rgba(2, 15, 39, 0.75), rgba(2, 15, 39, 0.9));
-	}
-</style>
-<div id="vue-frontend-app" class="FRONTPAGE">
-  <v-app light>
-    <v-toolbar class="white">
-      <v-toolbar-title>
-        <a href="/" class="header-logo">
-          <!-- <img src="/wp-content/themes/wpapi-app/public/images/header-logo-transparent-400w.png" alt=""> -->
-          <img src="/wp-content/themes/wpapi-app/public/images/wpapi-logo.png" alt="">
-        </a>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        outline
-        small
-        href="/wp-login.php"
-      >
-      Login
-      </v-btn>
-    </v-toolbar>
-    <!-- <v-parallax-hero></v-parallax-hero> -->
+
     <v-content>
       <section>
-      <v-parallax-hero></v-parallax-hero>
+        <v-parallax-hero img="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"/>
       </section>
       <section>
         <v-layout
@@ -111,17 +73,5 @@
         </v-layout>
       </section>
     </v-content>
-    <v-footer class="py-5" light>
-      <v-layout row wrap align-center>
-        <v-flex xs12 text-xs-center>
-          <div class="ml-3">
-            Made with
-            <v-icon class="">favorite</v-icon>
-            by <a class="" href="https://www.davidroyer.me" target="_blank">David Royer</a>
-          </div>
-        </v-flex>
-      </v-layout>
-    </v-footer>
-  </v-app>
-</div>
+
 <?php get_footer(); ?>
