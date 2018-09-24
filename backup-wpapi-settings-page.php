@@ -41,14 +41,7 @@ class MySettingsPage
         // Set class property
         $this->options = get_option( 'wpapi_config' );
         ?>
-<style media="screen">
-input#webhook_url {
-    max-width: 450px;
-    padding: 8px 6px;
-    margin-top: -4px;
-    width: 100%;
-}
-</style>
+        <?php print_r($this->options); ?>
         <div class="wrap">
             <h1>WPAPI Settings & Options</h1>
             <?php settings_errors(); ?>
@@ -91,6 +84,14 @@ input#webhook_url {
         );
 
         add_settings_field(
+            'demo_checkbox', // ID
+            'Demo Checkbox', // Title
+            array( $this, 'demo_checkbox_callback' ), // Callback
+            'wpapi_settings_admin', // Page
+            'setting_section_id' // Section
+        );
+
+        add_settings_field(
             'webhook_url',
             'Netlify Webhook URL',
             array( $this, 'webhook_callback' ),
@@ -107,12 +108,18 @@ input#webhook_url {
     public function sanitize( $input )
     {
         $new_input = array();
-        $new_input['enable_builds'] = absint( $input['enable_builds'] );
+        if( isset( $input['enable_builds'] ) )
+            $new_input['enable_builds'] = absint( $input['enable_builds'] );
 
         if( isset( $input['webhook_url'] ) )
             $new_input['webhook_url'] = sanitize_text_field( $input['webhook_url'] );
 
-        $new_input['demo_checkbox'] = absint($input['demo_checkbox']);
+        if (isset( $input['demo_checkbox'] )) {
+          $new_input['demo_checkbox'] = 1;
+        } else {
+          $new_input['demo_checkbox'] = 0;
+        }
+        // $new_input['demo_checkbox'] = absint($input['demo_checkbox']);
         return $new_input;
     }
 
@@ -127,12 +134,23 @@ input#webhook_url {
     /**
      * Get the settings option array and print one of its values
      */
-   public function enable_builds_callback()
-   {
-     ?>
-          <input type="checkbox" id="enable_builds" name="wpapi_config[enable_builds]" value="1" <?php if ( 1 == $this->options['enable_builds'] ) echo 'checked="checked"'; ?> />
-     <?php
-   }
+    public function enable_builds_callback()
+    {
+        printf(
+            '<input type="text" id="enable_builds" name="wpapi_config[enable_builds]" value="%s" />',
+            isset( $this->options['enable_builds'] ) ? esc_attr( $this->options['enable_builds']) : ''
+        );
+    }
+
+    public function demo_checkbox_callback()
+    {
+
+       ?>
+            <!-- Here we are comparing stored value with 1. Stored value is 1 if user checks the checkbox otherwise empty string. -->
+            <!-- <input type="checkbox" id="demo_checkbox" name="demo_checkbox" value="1" checked /> -->
+            <input type="checkbox" id="demo_checkbox" name="demo_checkbox" value="1" <?php if ( 1 == $this->options['demo_checkbox'] ) echo 'checked="checked"'; ?> />
+       <?php
+    }
 
     /**
      * Get the settings option array and print one of its values
@@ -140,7 +158,7 @@ input#webhook_url {
     public function webhook_callback()
     {
         printf(
-            '<input type="url" id="webhook_url" name="wpapi_config[webhook_url]" value="%s" />',
+            '<input type="text" id="webhook_url" name="wpapi_config[webhook_url]" value="%s" />',
             isset( $this->options['webhook_url'] ) ? esc_attr( $this->options['webhook_url']) : ''
         );
     }

@@ -3,7 +3,7 @@
 /**
  * Add all custom post types to rest-api & menus
  */
-require_once( 'rest-support_custom-posts.php' );
+require_once( 'rest-support_custom-posts-taxonomies.php' );
 require_once( 'rest-support_menus.php' );
 
 /**

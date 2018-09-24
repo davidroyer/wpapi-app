@@ -2,7 +2,7 @@
 
 $userConfig = get_option( 'wpapi_config' );
 $usingWebook = $userConfig['enable_builds'] == 1 ? true : false;
-$webhookUrl = $userConfig['webook_url'];
+$webhookUrl = $userConfig['webhook_url'];
 
 if ($usingWebook) {
   add_action( 'admin_bar_menu', 'wpapi_netlify_deploy', 999 );

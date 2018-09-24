@@ -23,9 +23,32 @@ function wpapi_custom_post_type_rest_support() {
 			$wp_post_types[$post_type_name]->show_in_rest = true;
 			// Optionally customize the rest_base or controller class
 			$label = $wp_post_types[$post_type_name]->label;
-			$post_type_rest_slug =	$post_type_name . 's';
+			// $post_type_rest_slug =	$post_type_name . 's';
 			$wp_post_types[$post_type_name]->rest_base = slugify($label);
 			$wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
+		}
+	}
+}
+
+
+/**
+* Add REST API support to an already registered taxonomy.
+*/
+add_action( 'init', 'wpapi_custom_taxonomy_rest_support', 25 );
+function wpapi_custom_taxonomy_rest_support() {
+	global $wp_taxonomies;
+
+	// Get All Taxonomies
+ 	$taxonomies = get_taxonomies();
+
+	foreach ($taxonomies as $taxonomy) {
+		if( isset( $wp_taxonomies[$taxonomy] ) ) {
+			$wp_taxonomies[$taxonomy]->show_in_rest = true;
+			// Optionally customize the rest_base or controller class
+			$label = $wp_taxonomies[$taxonomy]->label;
+			// $post_type_rest_slug =	$taxonomy . 's';
+			$wp_taxonomies[$taxonomy]->rest_base = slugify($label);
+			$wp_taxonomies[$taxonomy]->rest_controller_class = 'WP_REST_Terms_Controller';
 		}
 	}
 }

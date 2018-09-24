@@ -2,7 +2,7 @@
 
     <v-content v-cloak>
       <section>
-        <v-parallax-hero img="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"/>
+        <v-parallax-hero img="/wp-content/themes/wpapi-app/public/images/wpapi-banner.jpg"/>
       </section>
       <section id="features">
         <v-layout

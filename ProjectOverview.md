@@ -55,5 +55,5 @@ Using Nuxt's `generate` feature to get posts and pages from API and generate the
 
 - [ ] Need to check if logged in and send straight to dashboard if so
 - [ ] Check on adding https://wordpress.org/plugins/notification/
-- [ ] `wp-activate.php` is the page for confirming signups. Styling is messed up and need to fix this.
-- [ ] Seems to be that it's trying to use theme2017 even though its not set as an allowable theme.
+- [ ] Cant add new site on Dev for some reason
+- [ ]
