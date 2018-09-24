@@ -10,7 +10,8 @@
       justify-center
     >
       <h1 class="home-header display-3 font-weight-medium mb-3">WPAPI</h1>
-      <h4 class="home-subheader display-1 text-xs-center font-weight-thin" v-html="siteDescription"></h4>
+      <h4 class="home-subheader display-1 text-xs-center font-weight-thin">A Headless CMS Powered By WordPress</h4>
+      <!-- <h4 class="home-subheader display-1 text-xs-center font-weight-thin" v-html="siteDescription"></h4> -->
       <!-- <v-btn
         class="mt-5"
         light
@@ -66,6 +67,6 @@ export default {
 	max-height: 350px !important;
 }
 .home-subheader {
-	/* margin-top: -20px !important; */
+	margin-top: -20px !important;
 }
 </style>

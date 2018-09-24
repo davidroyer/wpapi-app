@@ -35,7 +35,7 @@ form#easy-newsletter-form {
 	font-weight: 400;
 	font-size: 1.25em;
 	margin-bottom: -5px;
-	color: #707070;
+	color: white;
 }
 input.wpens_email {
 	border-bottom: 1px solid gray;
@@ -48,7 +48,7 @@ input.wpens_email {
 #easy-newsletter-submit {
 	background: #1a76d2;
 	padding: 8px 18px;
-	border-radius: 4px;
+	border-radius: 2px;
 	font-weight: 600;
 	width: 100%;
 	color: white;
@@ -57,6 +57,12 @@ input.wpens_email {
 #signup-wrapper {
 	margin-top: 3em;
 	margin-bottom: 1.5em;
+
+	.headline {
+		margin-top: -60px;
+		margin-bottom: 70px !important;
+		font-weight: 300 !important;
+	}
 }
 
 .v-toolbar a {
@@ -107,3 +113,11 @@ input.wpens_email {
 [v-cloak] > * {
 	display: none;
 }
+
+#signup-parallax-section {
+	.v-parallax {
+		// max-height: 400px !important;
+	}
+}
+
+@import "features";

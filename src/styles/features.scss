@@ -1,0 +1,19 @@
+#features {
+	.features {
+		&-heading {
+			@media (max-width: 599px) {
+				margin-top: -24px !important;
+				font-size: 24px !important;
+			}
+		}
+	}
+
+	.feature {
+		&-title {
+			font-size: 18px !important;
+		}
+		&-text {
+			font-size: 15px !important;
+		}
+	}
+}

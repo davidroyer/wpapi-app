@@ -4,7 +4,7 @@ import Vue from "vue";
 import Vuetify from "vuetify";
 import "./global-components";
 import "vuetify/dist/vuetify.min.css"; // Ensure you are using css-loader
-
+import data from "../data.json";
 Vue.use(Vuetify);
 
 if (module.hot) {
@@ -24,7 +24,8 @@ new Vue({
 		wpData: window.wpData,
 		siteInfo: window.wpData.siteInfo,
 		siteDescription: window.wpData.siteDescription,
-		ready: false
+		ready: false,
+		data
 	}),
 	props: {
 		source: String

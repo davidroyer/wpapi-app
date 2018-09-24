@@ -1,0 +1,38 @@
+{
+  "listFeatures": [
+    {
+      "title": "Manage Your Data",
+      "text":
+        "Use the Wordpress Admin for easy customization and creation for both you and your clients.",
+      "icon": "dashboard"
+    },
+    {
+      "title": "No Setup Needed",
+      "text":
+        "Your site and API will be ready-to-go the moment you signup so you can focus on your project.",
+      "icon": "code"
+    },
+    {
+      "title": "Custom Post Types",
+      "text":
+        "Create as many custom post types as you want. They are automatically availble in the API.",
+      "icon": "edit"
+    },
+    {
+      "title": "Fully Secured",
+      "text": "All sites are HTTPS and secured by SSL certificates.",
+      "icon": "https"
+    },
+    {
+      "title": "Continuous Integration",
+      "text": "Trigger Netlify builds from within your WordPress admin.",
+      "icon": "autorenew"
+    },
+    {
+      "title": "Add Additional Users",
+      "text":
+        "Add other admin users to your site. This is great for collarbation with a team or sites built for clients.",
+      "icon": "person_add"
+    }
+  ]
+}
