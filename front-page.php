@@ -4,6 +4,7 @@
       <section>
         <v-parallax-hero img="/wp-content/themes/wpapi-app/public/images/wpapi-banner.jpg"/>
       </section>
+
       <section id="features">
         <v-layout
           column
@@ -34,9 +35,10 @@
             justify-center
             class="white--text text-xs-center"
           >
-          <h3 class="my-4 display-2">Coming Soon</h3>
+          <h3 class="signup-heading my-4 display-2">Beta Version Coming Soon</h3>
+          <h3 class="signup-subheading headline font-weight-light mb-4">Signup For Early Access</h3>
+
           <div id="signup-wrapper">
-            <h2 class="headline font-weight-medium mb-4">Recieve An Email When It's Ready To Test Out</h2>
             <span class="subheading">
               <?php echo do_shortcode('[wpens_easy_newsletter firstname="no" lastname="no" button_text="Yes Please!"]'); ?>
             </span>

@@ -122,9 +122,6 @@ input.wpens_email {
 			font-size: 36px !important;
 		}
 	}
-	&-subheading {
-		margin-top: -24px !important;
-	}
 }
 
 #signup-wrapper {
@@ -144,28 +141,6 @@ input.wpens_email {
 .v-footer {
 	font-size: 1.25rem;
 }
-.v-parallax::after {
-	content: "";
-	/* background: linear-gradient(
-		to top,
-		rgba(13, 3, 29, 0.85),
-		rgba(25, 25, 38, 0.85)
-	);
-	background: linear-gradient(
-		to top,
-		rgba(13, 3, 29, 0.85),
-		rgba(25, 25, 38, 0.85)
-	); */
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	/* contain: strict; */
-	transition: inherit;
-	z-index: 1;
-}
-
 .v-parallax::after {
 	background: -webkit-linear-gradient(
 		bottom,

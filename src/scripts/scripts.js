@@ -31,3 +31,11 @@ new Vue({
 		source: String
 	}
 });
+
+(function() {
+	var emailInput = document.querySelector(
+		"#easy-newsletter-form input[name=email]"
+	);
+	emailInput.setAttribute("type", "email");
+	emailInput.setAttribute("placeholder", "Your Email Address");
+})();

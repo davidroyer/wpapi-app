@@ -136,7 +136,6 @@ get_header( 'wp-signup' );
 		      <h1 class="signup-hero-headline font-weight-medium mb-3">Signup</h1>
 		    </v-layout>
 				</v-parallax>
-        <!-- <v-parallax-hero></v-parallax-hero> -->
       </section>
       <section>
 				<v-layout class="my-5" justify-center align-center>
