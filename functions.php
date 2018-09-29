@@ -22,19 +22,24 @@ require get_parent_theme_file_path( '/wpapi-inc/wpapi-inc.php' );
 /**
  * Limit user to only creating 3 Sites
  */
-function limit_blog_creation_per_user($active_signup) {
-  $blog_limit = 3;
+ require get_parent_theme_file_path( '/wpapi-inc/limit-blog-creation.php' );
 
-  if( !is_super_admin() ) :
-  $current_user = wp_get_current_user();
-  $user_blogs = get_blogs_of_user( $current_user->ID );
+/**
+ * For Admin
+ */
+function load_custom_wp_admin_scripts_styles() {
+    wp_register_style( 'admin-css', get_template_directory_uri() . '/admin/admin.css', false, '1.0.0' );
+    wp_register_script( 'admin-js', get_template_directory_uri() . '/admin/admin.js', array( 'jquery' ), null, true);
 
-  if (count($user_blogs) >= $blog_limit ) {
-    $active_signup = 'none'; ?>
-    <h2>Sorry but you have already registered the maximum amount of sites.</h2> <?php
-  }
-  endif;
-
-  return $active_signup;
+    wp_enqueue_style( 'admin-css' );
+    wp_enqueue_script( 'admin-js' );
 }
-add_action('wpmu_active_signup','limit_blog_creation_per_user');
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_scripts_styles' );
+
+
+/**
+ * Hides main theme on subdomains.
+ * This will allow for seperate theme for headless-theme
+ * for users if this route is taken.
+ */
+// require get_parent_theme_file_path( '/wpapi-inc/hide-main-theme.php' );

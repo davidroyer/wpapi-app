@@ -15,9 +15,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+		<meta name="twitter:card" content="summary" />
+		<!-- <meta name="twitter:site" content="@flickr" /> -->
+		<meta name="twitter:title" content="WPAPI"/>
+		<meta name="twitter:description" content="A Headless CMS Powered By WordPress" />
+		<meta name="twitter:image" content="https://www.wpapi.app/wp-content/themes/wpapi-app/public/images/wpapi-screenshot.png" />
+		<meta data-n-head="true" content="https://www.wpapi.app/wp-content/themes/wpapi-app/public/images/wpapi-screenshot.png" data-hid="og:image" property="og:image">
 
 		<?php $blog_id = get_current_blog_id(); ?>
-
 		<?php if ( is_main_site($blog_id) ): ?>
 			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126223694-1"></script>

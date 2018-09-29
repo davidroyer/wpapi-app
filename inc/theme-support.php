@@ -18,9 +18,9 @@
   	// registering wp3+ menus
   	register_nav_menus(
   		array(
-  			'main' => __( 'Main' ), // main nav in header
-  			'footer' => __( 'Footer Links' ), // secondary nav in footer
-  			'secondary' => __( 'Secondary' ) // secondary nav in footer
+  			'primary' => __( 'Primary Menu' ), // main nav in header
+        'secondary' => __( 'Secondary Menu' ), // secondary nav in footer
+  			'footer' => __( 'Footer Menu' ) // secondary nav in footer
   		)
   	);
 

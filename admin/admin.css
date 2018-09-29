@@ -1,0 +1,27 @@
+.customize-pane-child .customize-control-nav_menu_locations {
+	color: none !important;
+}
+.wp-customizer .accordion-section-title {
+	/* display: none !important; */
+}
+.wp-admin .menu-settings,
+.wp-admin .nav-tab-wrapper {
+	display: none !important;
+}
+
+#accordion-section-menu_locations,
+.customize-control-nav_menu_auto_add {
+	display: none !important;
+}
+
+// CPT UI
+
+body.wp-admin .wdspromos {
+	display: none !important;
+	color: blue !important;
+	background: blue !important;
+}
+
+.wdspromos * {
+	display: none !important;
+}

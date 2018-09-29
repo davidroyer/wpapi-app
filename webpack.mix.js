@@ -15,16 +15,17 @@ let themePathsArray = [
 	path.join(__dirname, "**/*.php"),
 	path.join(__dirname, "src/scripts/**/*.js")
 ];
-
-glob.sync("src/styles/*.scss").map(function(file) {
-	mix.sass(file, "css");
-});
+//
+// glob.sync("src/styles/*.scss").map(function(file) {
+// 	mix.sass(file, "css");
+// });
 
 mix
 	.disableNotifications()
 	.setPublicPath("public")
 	.setResourceRoot(resourceRoot)
 	.js("src/scripts/scripts.js", "js")
+	.sass("src/styles/style.scss", "css")
 	.browserSync({
 		proxy: process.env.DEV_URL,
 		files: ["**/*.php", "public/css/*.css", "public/js/*.js"]

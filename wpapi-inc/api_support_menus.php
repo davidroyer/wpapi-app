@@ -5,14 +5,14 @@
  * @return array List of menus with slug and description
  */
 function wpapi_menus_all () {
-    $menus = [];
-    foreach (get_registered_nav_menus() as $slug => $description) {
-        $obj = new stdClass;
-        $obj->slug = $slug;
-        $obj->description = $description;
-        $menus[] = $obj;
-    }
-    return $menus;
+   $menus = [];
+   $wp_menus = wp_get_nav_menus();
+
+   foreach ($wp_menus as $wp_menu) {
+       $menu = (array) $wp_menu;
+       $menus[] = $menu;
+   }
+   return $menus;
 }
 
 /**
@@ -23,11 +23,10 @@ function wpapi_menus_all () {
 function wpapi_menu ( $data ) {
   $menu = new stdClass;
 	$menu->items = [];
-    if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $data['id'] ] ) ) {
-        $menu = get_term( $locations[ $data['id'] ] );
-        $menu->items = wp_get_nav_menu_items($menu->term_id);
-    }
-    return $menu;
+
+  $menu = wp_get_nav_menu_object( $data['id']  );
+  $menu->items = wp_get_nav_menu_items($data['id']);
+  return $menu;
 }
 
 add_action( 'rest_api_init', function () {

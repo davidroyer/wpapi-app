@@ -15,7 +15,7 @@
     {
       "title": "Custom Post Types",
       "text":
-        "Create as many custom post types as you want. They are automatically availble in the API.",
+        "Create as many custom post types as you want. They are automatically available in the API.",
       "icon": "edit"
     },
     {
@@ -31,7 +31,7 @@
     {
       "title": "Add Additional Users",
       "text":
-        "Add other admin users to your site. This is great for collarbation with a team or sites built for clients.",
+        "Add other admin users to your site. This is great for collaboration with a team or sites built for clients.",
       "icon": "person_add"
     }
   ]
